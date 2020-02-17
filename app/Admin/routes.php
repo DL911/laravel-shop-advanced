@@ -17,10 +17,12 @@ Route::group([
     $router->post('products', 'ProductsController@store');
     $router->get('products/{id}/edit', 'ProductsController@edit');
     $router->put('products/{id}', 'ProductsController@update');
+
     $router->get('orders', 'OrdersController@index')->name('admin.orders.index');
     $router->get('orders/{order}', 'OrdersController@show')->name('admin.orders.show');
     $router->post('orders/{order}/ship', 'OrdersController@ship')->name('admin.orders.ship');
     $router->post('orders/{order}/refund', 'OrdersController@handleRefund')->name('admin.orders.handle_refund');
+
     $router->get('coupon_codes', 'CouponCodesController@index');
     $router->post('coupon_codes', 'CouponCodesController@store');
     $router->get('coupon_codes/create', 'CouponCodesController@create');
@@ -35,4 +37,10 @@ Route::group([
     $router->put('categories/{id}', 'CategoriesController@update');
     $router->delete('categories/{id}', 'CategoriesController@destroy');
     $router->get('api/categories', 'CategoriesController@apiIndex');
+
+    $router->get('seckill_products', 'SeckillProductsController@index');
+    $router->get('seckill_products/create', 'SeckillProductsController@create');
+    $router->post('seckill_products', 'SeckillProductsController@store');
+    $router->get('seckill_products/{id}/edit', 'SeckillProductsController@edit');
+    $router->put('seckill_products/{id}', 'SeckillProductsController@update');
 });
